@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type='text/javascript' src='./js/mapStyle.js'></script>
+
+    <style>
+       #map {
+        height: 600px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() { 
+        var London = {lat: 51.509865, lng: -0.118092};
+        var mapOptions = {
+                    center: new google.maps.LatLng(51.514756, -0.104345),
+                    zoom: 11,
+                    styles: darkMap
+                };
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        var marker = new google.maps.Marker({
+          position: London,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7UJ1JbKnBvycoS-SATXKgf7HwUdxWPZA&callback=initMap">
+    </script>
+  </body>
+</html>
