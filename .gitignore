@@ -74,5 +74,7 @@ vignettes/*.pdf
 01_SQL/00_Archive
 .Rproj.user
 
-server/fetchPremises/node_modules
+/*/*/node_modules
+/*/*/public
+server/00_Archive
 *.pper

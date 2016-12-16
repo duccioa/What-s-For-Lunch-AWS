@@ -1,0 +1,15 @@
+{
+  "name": "fetchPremises",
+  "version": "1.0.0",
+  "description": "Fetch lon and lat of premises by token on the FoodPremises database",
+  "main": "index.js",
+  "scripts": {
+    "zip": "zip -r ../fetchPremises.zip *"
+  },
+  "keywords": [],
+  "author": "Duccio Aiazzi",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^6.1.2"
+  }
+}

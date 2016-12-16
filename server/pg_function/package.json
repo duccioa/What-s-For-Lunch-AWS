@@ -1,0 +1,16 @@
+{
+  "name": "pg_function",
+  "version": "0.0.1",
+  "description": "Wicked awesome test API",
+  "author": "pete gamache <pete@appcues.com>",
+  "main": "index.js",
+  
+  "dependencies": {
+  },
+  
+
+  
+  "scripts": {
+    "zip": "zip -r ../pg_function.zip *"
+  }
+}
