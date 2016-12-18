@@ -1,8 +1,14 @@
 <!DOCTYPE html>
+
 <html>
   <head>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <script type='text/javascript' src='./js/mapStyle.js'></script>
-    
+    <script type="text/javascript" src="./js/map_functions.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <script type='text/javascript' src='https://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
     <style>
        #map {
         height: 600px;
@@ -16,27 +22,18 @@
     <script>
         var markerArray = [];
         var dataArray = [];
-        var token = 'cafe';
+        var token = 'sushi';
+        
+        var map = L.map('map').setView([51.505, -0.09], 13);
+        L.tileLayer('https://api.mapbox.com/styles/v1/duccioa/ciwrywi3f005m2pnycsiad4i8/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZHVjY2lvYSIsImEiOiJjaW80Z2l5bngwMDFudzZseWhnZHhsOWxtIn0.0osACDIq6ESlPKgardoYdw', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18
+}).addTo(map);
+        getData(token);
+    
+    
+      
+    </script>
 
-    
-    
-    
-      function initMap() { 
-        var London = {lat: 51.509865, lng: -0.118092};
-        var mapOptions = {
-                    center: new google.maps.LatLng(51.514756, -0.104345),
-                    zoom: 11,
-                    styles: greyMap
-                };
-        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        var marker = new google.maps.Marker({
-          position: London,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7UJ1JbKnBvycoS-SATXKgf7HwUdxWPZA&callback=initMap">
-    </script>
   </body>
 </html>

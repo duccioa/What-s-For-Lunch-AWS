@@ -10,7 +10,7 @@ exports.handler = function(event, context) {
     var client = new pg.Client(conn);
     client.connect();
   console.log("Query sushi");
-    var query = client.query("SELECT t2.businessname AS businessname, t1.token AS token, t2.lat AS lat, t2.lon AS lon FROM tokens t1 JOIN business t2 ON t1.businessid = t2.businessid WHERE t1.token = '" + token + "';");
+    var query = client.query("SELECT t2.businessname AS businessname, ST_Y(t2.geom) AS lat, ST_X(t2.geom) AS lon FROM tokens t1 JOIN business t2 ON t1.businessid = t2.businessid WHERE t1.token = '" + token + "';");
     query.on("row", function (row, result) {
         result.addRow(row);
     });
