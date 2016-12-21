@@ -1,0 +1,115 @@
+[
+              {
+        "id": 1,
+        "token": "coffee",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+        },
+        {
+        "id": 2,
+        "token": "coffee",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+        },
+        {
+        "id": 3,
+        "token": "coffee",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+        },
+        {
+        "id": 4,
+        "token": "coffee",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+        },
+        {
+        "id": 5,
+        "token": "coffee",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+        },
+        {
+        "id": 6,
+        "token": "coffee",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+        },
+        {
+        "id": 7,
+        "token": "coffee",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+        },
+        {
+        "id": 8,
+        "token": "coffee",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+        },
+        {
+        "id": 9,
+        "token": "coffee",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+        },
+        {
+        "id": 10,
+        "token": "coffee",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+        },
+        
+        
+    
+        ]

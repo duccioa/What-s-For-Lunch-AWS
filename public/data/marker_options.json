@@ -1,0 +1,122 @@
+[
+              {
+        "id": 1,
+        "token": "coffee",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+          }
+        },
+        {
+        "id": 2,
+        "token": "pizza",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+          }
+        },
+        {
+        "id": 3,
+        "token": "grill",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+          }
+        },
+        {
+        "id": 4,
+        "token": "sushi",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+          }
+        },
+        {
+        "id": 5,
+        "token": "thai",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+          }
+        },
+        {
+        "id": 6,
+        "token": "fried",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+          }
+        },
+        {
+        "id": 7,
+        "token": "kebab",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+          }
+        },
+        {
+        "id": 8,
+        "token": "waitrose",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+          }
+        },
+        {
+        "id": 9,
+        "token": "tesco",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+          }
+        },
+        {
+        "id": 10,
+        "token": "costcutter",
+        "marker": {
+          "iconShape": "doughnut",
+          "borderWidth": 5,
+          "iconSize": [7,7],
+          "borderColor":"#1EB300",
+          "borderWidth": 3,
+          "backgroundColor":"white"
+          }
+        }
+]
