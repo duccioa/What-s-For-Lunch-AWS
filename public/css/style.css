@@ -1,0 +1,33 @@
+#map {  
+        height:600px;
+        width: 100%;
+
+       }
+#graphs {  
+        width: 100%;
+
+       }
+.graphLeftContent{
+	 float : left;
+	 clear : none;
+	 height : 100%;
+	 width : 30%;
+}
+.graphRightContent{
+	 float : left;
+	 clear : none;
+	 height : 100%;
+}
+
+.dWords {
+	padding-left:5%;
+	margin-top:3%;
+	height: 83%;
+	width: 40%;
+	z-index: 2;
+	word-wrap: break-word;
+	word-break: normal;
+	position: absolute;
+	float: left;
+	overflow:scroll;
+}

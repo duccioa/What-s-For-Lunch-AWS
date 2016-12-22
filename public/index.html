@@ -29,8 +29,8 @@
     <!-- Custom CSS -->
     <link href="css/scrolling-nav.css" rel="stylesheet">
 
-    <!-- Map CSS -->
-    <link href="css/map.css" rel="stylesheet">
+    <!-- All the other CSS -->
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- Beatuful Markers CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -89,6 +89,9 @@
                         <a class="page-scroll" href="#themap">The map</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="#graphs">analysis</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#analysis">analysis</a>
                     </li>
                     <li>
@@ -108,11 +111,11 @@
                 <div class="col-lg-12">
                     <h1>What's For Lunch</h1>
                     <div class="intro-section-text">
-                        <p>
-                            This is an exploration of food habits of Londoners, depending on their income and their area of residency. The rationale behind the project is that different social classes have different consumption patterns, hence demand different types of retail. The project includes an interactive map for the visualisation of the spatial distribution of different words in the name of food premises across London.
+                        <p stule="font-size:18px;">
+                            This is an exploration of food habits of Londoners, depending on their income and their area of residency. The rationale behind the project is that different social classes have different consumption patterns, hence demand different types of retail. We tried to catch these differences by looking at the name of these premises and the appearance of some specific words. We considered the business names of more than 10000 food premises across London, split them in single words and analysed the spatial distribution of these words in comparison with the distribution of household income levels. We identified fifteen tokens that were likely to have some interesting patterns and for each of them we studied the correlation with income. 
                         </p>
                     </div>
-                    <a class="btn btn-default page-scroll" href="#themap">Show me the map!</a>
+                    <a class="btn btn-default page-scroll" href="#themap">To the map</a>
                 </div>
             </div>
         </div>
@@ -123,6 +126,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                  
+                    <a class="btn btn-default page-scroll" style="margin-bottom: 15px;" href="#intro">Go back</a>
                     <div id="map">
                         <script>
                             var map = L.map('map').setView([51.505, -0.09], initialZoom).addLayer(baseMap);
@@ -131,6 +136,7 @@
                             $(document).ready(initializeMarkers(tokenControlArray, initialToken));
                         </script>
                     </div>
+                    <div class = "btn-token">
                     <div class="btn-group" role="group" aria-label="...">
                       <button id="cafe" type="button" class="btn btn-default">Cafe</button>
                       <button id="coffee" type="button" class="btn btn-default">Coffee</button>
@@ -148,17 +154,55 @@
                       <button id="sainsbury" type="button" class="btn btn-default">Sainsbury's</button>
                       <button id="costcutter" type="button" class="btn btn-default">Costcutter</button>
                     </div>
+                    </div>
                     <p>
-                        Select a token below to filter the premises on the map base on its appearance in the business name of the premises.
+                        Select a word to filter the premises on the map based on its appearance in the business name of the premises (example: if you select the word 'sushi', the map will show all the restaurants that show the word in their name).
                     </p>
-
                 </div>
-                <a class="btn btn-default page-scroll" href="#analysis">A bit of analysis</a>
+                <a class="btn btn-default page-scroll" href="#graphs">To the graphs</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Graphs Section -->
+    <section id="graphs" class="graphs-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="graphs">
+                      <div class="graphLeftContent">
+                        <div id="describeWords" class="dWords">
+            </div>
+                      </div>
+                      <div class="graphRightContent">
+                        
+                      </div>
+                    <div class = "btn-token">
+                    <div class="btn-group" role="group" aria-label="...">
+                      <button id="cafe_text" type="button" class="btn btn-default">Cafe</button>
+                      <button id="coffee_text" type="button" class="btn btn-default">Coffee</button>
+                      <button id="wine_text" type="button" class="btn btn-default">Wine</button>
+                      <button id="pizza_text" type="button" class="btn btn-default">Pizza</button>
+                      <button id="grill_text" type="button" class="btn btn-default">Grill</button>
+                      <button id="sushi_text" type="button" class="btn btn-default">Sushi</button>
+                      <button id="thai_text" type="button" class="btn btn-default">Thai</button>
+                      <button id="chicken_text" type="button" class="btn btn-default">Chicken</button>
+                      <button id="fried_text" type="button" class="btn btn-default">Fried</button>
+                      <button id="fish_text" type="button" class="btn btn-default">Fish</button>
+                      <button id="kebab_text" type="button" class="btn btn-default">Kebab</button>
+                      <button id="waitrose_text" type="button" class="btn btn-default">Waitrose</button>
+                      <button id="tesco_text" type="button" class="btn btn-default">Tesco</button>
+                      <button id="sainsbury_text" type="button" class="btn btn-default">Sainsbury's</button>
+                      <button id="costcutter_text" type="button" class="btn btn-default">Costcutter</button>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
     <section id="analysis" class="analysis-section">
         <div class="container">
             <div class="row">

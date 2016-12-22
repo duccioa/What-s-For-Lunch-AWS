@@ -1288,7 +1288,6 @@ h6,
 }
 p {
   margin: 0 0 10px;
-  font-size:18px;
 }
 .lead {
   margin-bottom: 20px;
@@ -1593,9 +1592,9 @@ pre code {
     width: 750px;
   }
 }
-@media (min-width: 992px) { 
+@media (min-width: 992px) {
   .container {
-    width: 1200px;
+    width: 970px;
   }
 }
 @media (min-width: 1200px) {

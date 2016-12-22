@@ -46,4 +46,17 @@ function setupButtonEvents(tokens_array){
   });
 }
 
+function setupTextButtonEvents(tokens_array){
+  $.each(tokens_array,function(k,v){
+    var tok = '#'+v.token+"_text";
+    var link2analysis = './text/' + v.token + '_analysis.html';
+    var link2hist = './imgages/graphs/' + v.token + '_histogram.png';
+    var link2corr = './imgages/graphs/' + v.token + '_income_scatter.png';
+    $(tok).on('click', function (e) {
+                $("#describeWords").load(link2analysis);
+                //document.getElementById('hist').src = link2hist;
+                //document.getElementById('corr').src = link2corr;
 
+            });
+  });
+}
