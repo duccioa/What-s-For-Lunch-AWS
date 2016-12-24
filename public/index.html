@@ -14,17 +14,16 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 
     <!-- Various Scripts -->
-
+    <script type='text/javascript' src='https://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
     <script type='text/javascript' src='./js/mapStyle.js'></script>
     <script type="text/javascript" src="./js/map_functions.js"></script>
     <script type="text/javascript" src="./js/functions.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-    <script type='text/javascript' src='https://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
 
     <title>What's For Lunch</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/scrolling-nav.css" rel="stylesheet">
@@ -34,17 +33,25 @@
 
     <!-- Beatuful Markers CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/leaflet-beautify-marker-icon.css">
     <script src="./js/beautifulMarkers/leaflet-beautify-marker-icon.js"></script>
     <script src="./js/beautifulMarkers/leaflet-beautify-marker.js"></script>
+
+    <!-- HighChrts -->
+    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js" defer></script>
+    <script type='text/javascript' src="https://code.highcharts.com/highcharts-more.js" defer></script>
+    <script type='text/javascript' src="https://code.highcharts.com/modules/heatmap.js" defer></script>
+    <script type='text/javascript' src="https://code.highcharts.com/modules/treemap.js" defer></script>
+    <script type='text/javascript' src="https://code.highcharts.com/modules/exporting.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/highcharts.css" />
+    <script type='text/javascript' src="./js/highcharts_local.js" defer></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
@@ -58,11 +65,8 @@
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
             maxZoom: 18
         });
-        var initialZoom = 11;
-        var initialToken = 'sushi';
-        
-
-
+        var initialZoom = 12;
+        var initialToken = token = 'sushi';
     </script>
 
     <!-- Navigation -->
@@ -75,7 +79,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">What's For Lunch</a>
+                <a class="navbar-brand page-scroll" style="font-weight:bold; font-size:22px;" href="#page-top">What's For Lunch?</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -89,13 +93,16 @@
                         <a class="page-scroll" href="#themap">The map</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#graphs">analysis</a>
+                        <a class="page-scroll" href="#graphs">Explore the data</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#analysis">analysis</a>
+                        <a class="page-scroll" href="#overview">Overview</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#conclusions">Conclusions</a>
+                        <a class="page-scroll" href="#methodology">Methodology</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#dataSources">Data Sources</a>
                     </li>
                 </ul>
             </div>
@@ -109,11 +116,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>What's For Lunch</h1>
+                    <h1>What's For Lunch?</h1>
                     <div class="intro-section-text">
-                        <p stule="font-size:18px;">
-                            This is an exploration of food habits of Londoners, depending on their income and their area of residency. The rationale behind the project is that different social classes have different consumption patterns, hence demand different types of retail. We tried to catch these differences by looking at the name of these premises and the appearance of some specific words. We considered the business names of more than 10000 food premises across London, split them in single words and analysed the spatial distribution of these words in comparison with the distribution of household income levels. We identified fifteen tokens that were likely to have some interesting patterns and for each of them we studied the correlation with income. 
-                        </p>
+                      
+                      <p>"What's for lunch?" selects common words appearing in the names of food businesses in London, revealing fascinating spatial differences in what people from high and low income areas in London buy for lunch.
+This website allows you to explore these patterns on an interactive map for yourself, using the options available to select different words. What&rsquo;s for lunch where you live? Where does your area sit in the food gentrification classification?</p>
+                        
                     </div>
                     <a class="btn btn-default page-scroll" href="#themap">To the map</a>
                 </div>
@@ -126,7 +134,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                  
+
                     <a class="btn btn-default page-scroll" style="margin-bottom: 15px;" href="#intro">Go back</a>
                     <div id="map">
                         <script>
@@ -136,26 +144,26 @@
                             $(document).ready(initializeMarkers(tokenControlArray, initialToken));
                         </script>
                     </div>
-                    <div class = "btn-token">
-                    <div class="btn-group" role="group" aria-label="...">
-                      <button id="cafe" type="button" class="btn btn-default">Cafe</button>
-                      <button id="coffee" type="button" class="btn btn-default">Coffee</button>
-                      <button id="wine" type="button" class="btn btn-default">Wine</button>
-                      <button id="pizza" type="button" class="btn btn-default">Pizza</button>
-                      <button id="grill" type="button" class="btn btn-default">Grill</button>
-                      <button id="sushi" type="button" class="btn btn-default">Sushi</button>
-                      <button id="thai" type="button" class="btn btn-default">Thai</button>
-                      <button id="chicken" type="button" class="btn btn-default">Chicken</button>
-                      <button id="fried" type="button" class="btn btn-default">Fried</button>
-                      <button id="fish" type="button" class="btn btn-default">Fish</button>
-                      <button id="kebab" type="button" class="btn btn-default">Kebab</button>
-                      <button id="waitrose" type="button" class="btn btn-default">Waitrose</button>
-                      <button id="tesco" type="button" class="btn btn-default">Tesco</button>
-                      <button id="sainsbury" type="button" class="btn btn-default">Sainsbury's</button>
-                      <button id="costcutter" type="button" class="btn btn-default">Costcutter</button>
+                    <div class="btn-token">
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button id="cafe" type="button" class="btn btn-default">Cafe</button>
+                            <button id="coffee" type="button" class="btn btn-default">Coffee</button>
+                            <button id="wine" type="button" class="btn btn-default">Wine</button>
+                            <button id="pizza" type="button" class="btn btn-default">Pizza</button>
+                            <button id="grill" type="button" class="btn btn-default">Grill</button>
+                            <button id="sushi" type="button" class="btn btn-default">Sushi</button>
+                            <button id="thai" type="button" class="btn btn-default">Thai</button>
+                            <button id="chicken" type="button" class="btn btn-default">Chicken</button>
+                            <button id="fried" type="button" class="btn btn-default">Fried</button>
+                            <button id="fish" type="button" class="btn btn-default">Fish</button>
+                            <button id="kebab" type="button" class="btn btn-default">Kebab</button>
+                            <button id="waitrose" type="button" class="btn btn-default">Waitrose</button>
+                            <button id="tesco" type="button" class="btn btn-default">Tesco</button>
+                            <button id="sainsbury" type="button" class="btn btn-default">Sainsbury's</button>
+                            <button id="costcutter" type="button" class="btn btn-default">Costcutter</button>
+                        </div>
                     </div>
-                    </div>
-                    <p>
+                    <p style="font-size:14px;">
                         Select a word to filter the premises on the map based on its appearance in the business name of the premises (example: if you select the word 'sushi', the map will show all the restaurants that show the word in their name).
                     </p>
                 </div>
@@ -169,33 +177,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div id="graphs">
-                      <div class="graphLeftContent">
-                        <div id="describeWords" class="dWords">
-            </div>
-                      </div>
-                      <div class="graphRightContent">
-                        
-                      </div>
-                    <div class = "btn-token">
-                    <div class="btn-group" role="group" aria-label="...">
-                      <button id="cafe_text" type="button" class="btn btn-default">Cafe</button>
-                      <button id="coffee_text" type="button" class="btn btn-default">Coffee</button>
-                      <button id="wine_text" type="button" class="btn btn-default">Wine</button>
-                      <button id="pizza_text" type="button" class="btn btn-default">Pizza</button>
-                      <button id="grill_text" type="button" class="btn btn-default">Grill</button>
-                      <button id="sushi_text" type="button" class="btn btn-default">Sushi</button>
-                      <button id="thai_text" type="button" class="btn btn-default">Thai</button>
-                      <button id="chicken_text" type="button" class="btn btn-default">Chicken</button>
-                      <button id="fried_text" type="button" class="btn btn-default">Fried</button>
-                      <button id="fish_text" type="button" class="btn btn-default">Fish</button>
-                      <button id="kebab_text" type="button" class="btn btn-default">Kebab</button>
-                      <button id="waitrose_text" type="button" class="btn btn-default">Waitrose</button>
-                      <button id="tesco_text" type="button" class="btn btn-default">Tesco</button>
-                      <button id="sainsbury_text" type="button" class="btn btn-default">Sainsbury's</button>
-                      <button id="costcutter_text" type="button" class="btn btn-default">Costcutter</button>
-                    </div>
-                    </div>
+                    <a class="btn btn-default page-scroll" href="#themap">Back to the map</a>
+
+                    <div class="btn-token">
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button id="cafe_text" type="button" class="btn btn-default">Cafe</button>
+                            <button id="coffee_text" type="button" class="btn btn-default">Coffee</button>
+                            <button id="wine_text" type="button" class="btn btn-default">Wine</button>
+                            <button id="pizza_text" type="button" class="btn btn-default">Pizza</button>
+                            <button id="grill_text" type="button" class="btn btn-default">Grill</button>
+                            <button id="sushi_text" type="button" class="btn btn-default">Sushi</button>
+                            <button id="thai_text" type="button" class="btn btn-default">Thai</button>
+                            <button id="chicken_text" type="button" class="btn btn-default">Chicken</button>
+                            <button id="fried_text" type="button" class="btn btn-default">Fried</button>
+                            <button id="fish_text" type="button" class="btn btn-default">Fish</button>
+                            <button id="kebab_text" type="button" class="btn btn-default">Kebab</button>
+                            <button id="waitrose_text" type="button" class="btn btn-default">Waitrose</button>
+                            <button id="tesco_text" type="button" class="btn btn-default">Tesco</button>
+                            <button id="sainsbury_text" type="button" class="btn btn-default">Sainsbury's</button>
+                            <button id="costcutter_text" type="button" class="btn btn-default">Costcutter</button>
+                        </div>
+                        <a class="btn btn-default page-scroll" href="#overview">To the Analysis</a>
                     </div>
                 </div>
             </div>
@@ -203,27 +205,73 @@
     </section>
 
     <!-- Analysis Section -->
-    <section id="analysis" class="analysis-section">
+    <section id="overview" class="overview-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Analysis</h1>
+                  <a class="btn btn-default page-scroll" href="#themap">Back to the graphs</a>
+                    <div class="externalText">
+                      
+                    <script>
+                        $(function() {
+                            $("#includedTheProject1").load("./content/theProject1.html");
+                            $("#includedTheProject2").load("./content/theProject2.html");
+                            $("#includedTheProject3").load("./content/theProject3.html");
+                        });
+                    </script>
+                    
+                    <div id="includedTheProject1"></div>
+                    <div id="token_frequency"></div>
+                    <div id="includedTheProject2"></div>
+                    <div id="box_plot"></div>
+                    <div id="includedTheProject3"></div>
+                    <div id="treemap"></div>
+                    
+                    </div>
+                    <a class="btn btn-default page-scroll" href="#methodology">To the Methodology</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="conclusions" class="conclusions-section">
+    <!-- Methodology Section -->
+    <section id="methodology" class="methodology-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Conclusions</h1>
+                  <a class="btn btn-default page-scroll" href="#overview">Back to Overview</a>
+                  <div class="externalText">
+                    <script>
+                        $(function() {
+                            $("#includeMethodology").load("./content/Methodology.html");
+                        });
+                    </script>
+                    <div id="includeMethodology"></div>
+                  </div>
+                <a class="btn btn-default page-scroll" href="#data-sources-section">To the Data Sources</a>
                 </div>
             </div>
         </div>
     </section>
-
+    <!-- DataSources Section -->
+    <section id="dataSources" class="data-sources-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                  <a class="btn btn-default page-scroll" href="#methodology">Back to the Methodology</a>
+                  <div class="externalText">
+                    <script>
+                        $(function() {
+                            $("#includeDataSources").load("./content/DataSources.html");
+                        });
+                    </script>
+                    <div id="includeDataSources"></div>
+                  </div>
+                
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 

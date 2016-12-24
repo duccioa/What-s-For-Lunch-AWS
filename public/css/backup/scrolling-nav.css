@@ -60,42 +60,23 @@ of those sections to manage the look and feel of the site. */
     background: #fff;
 }
 
-.overview-section {
-    text-align:center;
-    height: 2700px;
+.analysis-section {
+    height: 100%;
     padding-top: 50px;
+    text-align: center;
     background: #eee;
 }
-.externalText{
-    width: 70%;
-    text-align: justify;
-    margin: auto;
-    position: relative;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    font-size:14pt;
-}
 
-.methodology-section {
-    height: 1700px;
+.conclusions-section {
+    height: 100%;
     padding-top: 50px;
     text-align: center;
     background: #fff;
 }
-.data-sources-section {
-    height: 1000px;
-    padding-top: 50px;
-    text-align: center;
-    background: #eee;
-}
 
 .btn-token{
-  margin-top:15px;
   margin-bottom:15px;
 }
 .btn-back{
-  margin-top:15px;
   margin-bottom:15px;
 }
