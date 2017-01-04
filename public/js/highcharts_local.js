@@ -335,7 +335,7 @@ function make_tree_map(){
 
 
 
-/////////////////////// TOKEN FREQUENCY //////////////////////////////
+/////////////////////// TOKEN FREQUENCY /////////////////////////////
 function make_freq_hist(){
     $('#token_frequency').highcharts({
         chart: {
