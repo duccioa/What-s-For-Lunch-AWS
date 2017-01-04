@@ -3,31 +3,39 @@
         width: 100%;
 
        }
-#graphs {  
-        width: 100%;
 
-       }
-.graphLeftContent{
-	 float : left;
-	 clear : none;
-	 height : 100%;
-	 width : 30%;
-}
-.graphRightContent{
-	 float : left;
-	 clear : none;
-	 height : 100%;
+
+.token_content{
+  height:680px;
+  padding-top:50px;
+  margin-bottom:15px;
 }
 
-.dWords {
-	padding-left:5%;
-	margin-top:3%;
-	height: 83%;
-	width: 40%;
-	z-index: 2;
+
+
+.column-left{ 
+  height: 90%;
 	word-wrap: break-word;
 	word-break: normal;
-	position: absolute;
-	float: left;
 	overflow:scroll;
+  float: left; 
+  width: 25%; 
+  font-size:10pt;
+  text-align:justify;
 }
+.column-right{ 
+  padding:2%;
+  height: 90%;
+  float: right; 
+  width: 37%; 
+}
+.column-center{ 
+  padding:2%;
+  height: 90%;
+  display: inline-block; 
+  width: 37%; 
+  
+}
+
+
+

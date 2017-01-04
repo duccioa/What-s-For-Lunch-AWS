@@ -1,6 +1,7 @@
 /////////////////////// BOXPLOT //////////////////////////////
-$(function() {
-    $('#box_plot').highcharts({
+function make_box_plot() {
+    Highcharts.chart("box_plot",
+      {
 
         chart: {
             type: 'boxplot',
@@ -105,11 +106,11 @@ $(function() {
         }]
 
     });
-});
+}
 
 
 /////////////////////// TREEMAP //////////////////////////////
-$(function() {
+function make_tree_map(){
     var data = {
             'Cafe': {
                 'High Income Area': {
@@ -330,12 +331,12 @@ $(function() {
             text: 'Tree Map for Token Distribution by High and Low Income'
         }
     });
-});
+}
 
 
 
 /////////////////////// TOKEN FREQUENCY //////////////////////////////
-$(function() {
+function make_freq_hist(){
     $('#token_frequency').highcharts({
         chart: {
             type: 'column',
@@ -449,4 +450,4 @@ $(function() {
             }
         }]
     });
-});
+}

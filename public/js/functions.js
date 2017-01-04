@@ -1,171 +1,69 @@
-  var tokenControlArray = [
-    {
-        "id": 1,
-        "token": "cafe",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#9fc54d",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-              {
-        "id": 1,
-        "token": "coffee",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#75c156",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-              {
-        "id": 1,
-        "token": "wine",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#71b67b",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-        {
-        "id": 2,
-        "token": "pizza",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#33a457",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-        {
-        "id": 3,
-        "token": "grill",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#1ea86c",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-        {
-        "id": 4,
-        "token": "sushi",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#61bdf0",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-        {
-        "id": 5,
-        "token": "thai",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#1e71b8",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-        {
-        "id": 6,
-        "token": "chicken",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#e03c00",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-        {
-        "id": 6,
-        "token": "fried",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#e56000",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-        {
-        "id": 6,
-        "token": "fish",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#f08c00",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-        {
-        "id": 7,
-        "token": "kebab",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#ffea00",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-        {
-        "id": 8,
-        "token": "waitrose",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#729f1e",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-        {
-        "id": 9,
-        "token": "tesco",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#0053a0",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-        {
-        "id": 9,
-        "token": "sainsbury",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#ee7a01",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
-        },
-        {
-        "id": 10,
-        "token": "costcutter",
-        "marker": {
-          "iconShape": "doughnut",
-          "iconSize": [7,7],
-          "borderColor":"#02c076",
-          "borderWidth": 3,
-          "backgroundColor":"white"
-          }
+/////// Map functions ///////
+function initializeMarkers(tokenArray, token_pick){
+   var token_options = [];
+    $.each(tokenArray, function(i, v) {
+        if (v.token === token_pick) {
+          token_options.push(v);
+          return false;
         }
-        ];
+        
+    });
+var markerOptions = {
+          iconShape: token_options[0].marker.iconShape,
+          iconSize:  token_options[0].marker.iconSize,
+          borderColor: token_options[0].marker.borderColor,
+          borderWidth:  token_options[0].marker.borderWidth,
+          backgroundColor: token_options[0].marker.backgroundColor
+        };
+  console.log("Getting Data for " + token_pick);
+  $.getJSON('https://ogko7k2q2j.execute-api.eu-west-1.amazonaws.com/filterByToken/',
+      {
+          token: token_pick
+      }, function(data){populate_markers(data, markerOptions)}
+      );
+}    
 
 
 
+function populate_markers(premises, markerOptions){
+    markers.clearLayers();
+  $.each(premises, function(k,v){
+    newMarker = new L.marker([v.lat,v.lon], { icon: L.BeautifyIcon.icon(markerOptions) }).bindPopup(v.businessname);
+    markers.addLayer(newMarker);
+  });
+  return false;
+  
+}
 
+function setupGraphs(token){
+  var link2analysis = "./content/analysis_"+token+".html";
+  var make_prefix = "make_";
+  var make_hist_prefix = "make_hist_";
+  window[make_prefix + token]();
+  window[make_hist_prefix + token]();
+  $("#graph_description").load(link2analysis);
+}
+  
+
+
+function setupMapButtonEvents(tokens_array){
+  $.each(tokens_array,function(k,v){
+    var tok = '#'+v.token;
+    var tok_text = tok + "_text";
+    $(tok).on('click', function (e) {
+                initializeMarkers(tokens_array,v.token);
+                setupGraphs(v.token);
+            });
+    $(tok_text).on('click', function (e) {
+                initializeMarkers(tokens_array,v.token);
+                setupGraphs(v.token);
+            });        
+  });
+}
+
+
+
+  
+  
+  
+  
