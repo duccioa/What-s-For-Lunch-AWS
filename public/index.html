@@ -42,7 +42,11 @@
     <link rel="stylesheet" href="./css/leaflet-beautify-marker-icon.css">
     <script src="./js/beautifulMarkers/leaflet-beautify-marker-icon.js"></script>
     <script src="./js/beautifulMarkers/leaflet-beautify-marker.js"></script>
-
+    <!-- Data -->
+    <script type='text/javascript' src="./js/dataWards.js" defer></script>
+    <script type='text/javascript' src="./js/dataBoroughs.js" defer></script>
+    <!-- Mathjs script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.8.1/math.min.js"></script>
     <!-- HighCharts -->
     <script type="text/javascript" src="https://code.highcharts.com/highcharts.js" defer></script>
     <script type='text/javascript' src="https://code.highcharts.com/highcharts-more.js" defer></script>
@@ -53,6 +57,7 @@
     <script type='text/javascript' src="./js/highcharts_local.js" defer></script>
     <script type='text/javascript' src="./js/highcharts_scatter_local.js" defer></script>
     <script type='text/javascript' src="./js/highcharts_hist_local.js" defer></script>
+    <!-- Start up scripts -->
     <script type='text/javascript' src="./js/startup_scripts.js" defer></script>
 
 </head>
@@ -149,8 +154,19 @@ This website allows you to explore these patterns on an interactive map for your
                             <button id="sainsbury" type="button" class="btn btn-default">Sainsbury's</button>
                             <button id="costcutter" type="button" class="btn btn-default">Costcutter</button>
                         </div>
+                        <div class="btn-group" role="group" aria-label="...">
+                          <button id="income" type="button" class="btn btn-default">Median Income</button>
+                          <button id="smooth_lq" type="button" class="btn btn-default">Location Quotient</button>
+                          <button id="local_morans" type="button" class="btn btn-default">Local Moran's I</button>
+
+                        </div>
+                                                <div class="btn-group" role="group" aria-label="...">
+
+                          <button id="classification" type="button" class="btn btn-default">Classes</button>
+                          <button id="reset" type="button" class="btn btn-default">Reset style</button>
+                        </div>
                     </div>
-                    <p style="font-size:14px;">
+                    <p style="font-size:12px;">
                         Select a word to filter the premises on the map based on its appearance in the business name of the premises (example: if you select the word 'sushi', the map will show all the restaurants that show the word in their name).
                     </p>
                 </div>
