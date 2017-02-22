@@ -10,8 +10,12 @@
   padding-top:50px;
   margin-bottom:15px;
 }
+.links {
+  font-weight:bold; 
+  color: inherit;
+}
 
-
+/* The graphs */
 
 .column-left{ 
   height: 90%;
@@ -37,5 +41,93 @@
   
 }
 
+/* Info box on the map */
+.info {
+    padding: 6px 8px;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
 
+/* The team */
+#container4 {
+	clear:left;
+	float:left;
+	width:100%;
+	overflow:hidden;
+}
+#container3 {
+	clear:left;
+	float:left;
+	width:100%;
+	position:relative;
+	right:25%;
+}
+#container2 {
+	clear:left;
+	float:left;
+	width:100%;
+	position:relative;
+	right:25%;
+}
+#container1 {
+  text-align:justify;
+	float:left;
+	width:100%;
+	position:relative;
+	right:25%;
+}
+#col1 {
+	float:left;
+	width:21%;
+	position:relative;
+	left:77%;
+	overflow:hidden;
+}
+#col2 {
+	float:left;
+	width:21%;
+	position:relative;
+	left:81%;
+	overflow:hidden;
+}
+#col3 {
+	float:left;
+	width:21%;
+	position:relative;
+	left:85%;
+	overflow:hidden;
+}
+#col4 {
+	float:left;
+	width:21%;
+	position:relative;
+	left:89%;
+	overflow:hidden;
+}
 
+/* Legend */
+.legend {
+  min-width:200px;
+  text-align:left;
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+.vizDescription {
+  
+  position:relative;
+  padding-top:4px;
+  padding-bottom:4px;
+}

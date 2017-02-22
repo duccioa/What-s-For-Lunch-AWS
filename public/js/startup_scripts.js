@@ -18,6 +18,9 @@ var controlScale = L.control.scale().addTo(map);
 var markers = new L.layerGroup();
 map.addLayer(markers);
 initializeMarkers(tokenControlArray, initialToken);
+
+var legend= L.control({position: 'bottomright'});
+
 //// Draw polygons on the map ////
 // Create style options
 var boroughsStyle = {
@@ -53,11 +56,32 @@ controlLayer = {
 };
 L.control.layers(null, controlLayer, {collapsed:false}).addTo(map);
 
+var info = L.control();
+
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
+
+// method that we will use to update the control based on feature properties passed
+info.update = function (props) {
+    this._div.innerHTML = '<h4>Ward info</h4>' +  (props ?
+        '<b>' + props.ward_name + '</b><br />' +
+        'Median income: ' + props.med_income_2012_13 + ' £<br />' +
+        ''
+        : 'Hover over a ward');
+};
+
+info.addTo(map);
+
+
 //
 $(document).ready(function() {
   setupMapButtonEvents(tokenControlArray);
   setupGraphs(initialToken);
   make_box_plot();
-  make_tree_map();
+  make_tree_map();  
   make_freq_hist();
+  drawLegend(viz);
 });

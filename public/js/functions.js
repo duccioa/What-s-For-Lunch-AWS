@@ -30,7 +30,9 @@ function populate_markers(premises, markerOptions) {
     $.each(premises, function(k, v) {
         newMarker = new L.marker([v.lat, v.lon], {
             icon: L.BeautifyIcon.icon(markerOptions)
-        }).bindPopup(v.businessname);
+        }).bindPopup(
+          '<b>' + v.businessname + '<b>'
+          );
         markers.addLayer(newMarker);
     });
     return false;
@@ -67,19 +69,20 @@ function setupMapButtonEvents(tokens_array) {
         });
     });
     $('#income').on('click', function(e) {
-        setViz("income", token)
+        setViz("income", token);
     });
     $('#smooth_lq').on('click', function(e) {
-        setViz("smooth_lq", token)
+        setViz("smooth_lq", token);
     });
     $('#local_morans').on('click', function(e) {
-        setViz("morans", token)
+        setViz("morans", token);
     });
     $('#classification').on('click', function(e) {
-        setViz("classification", token)
+        setViz("classification", token);
     });
     $('#reset').on('click', function(e) {
-        setWardStyle("default")
+        setWardStyle("default");
+        map.removeControl(legend);
     });
 }
 
@@ -124,6 +127,7 @@ function setViz(viz, token) {
         }
     }
     setWardStyle(col);
+    drawLegend(viz);
 }
 
 
@@ -131,18 +135,27 @@ function highlightFeature(e) {
     var layer = e.target;
 
     layer.setStyle({
-        weight: 5,
-        color: '#666',
-        dashArray: ''
+        weight: 5
     });
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
     }
+    info.update(layer.feature.properties);
 }
-
+// Wards hover events
 function resetHighlight(e) {
-    wardsLayer.resetStyle(e.target);
+        var layer = e.target;
+
+    layer.setStyle({
+        weight: 0.2
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+    
+    info.update();
 }
 
 function zoomToFeature(e) {
@@ -158,3 +171,41 @@ function onEachFeature(feature, layer) {
         click: zoomToFeature
     });
 }
+
+// Legend
+function drawLegend(viz){
+  if(viz ==="default"){
+    console.log("Legend not drawn");
+    map.removeControl(legend);
+  }
+  else{
+  map.removeControl(legend);
+  legend= L.control({position: 'bottomright'});
+  //var link2vizDescription = "./content/vizDescription_" + viz + ".html";
+  legend.onAdd = function (map){
+  var div = L.DomUtil.create('div', 'info legend');
+  var labels = [],
+  colors = [];
+  
+  $.each(legends[viz].grades, function(k,v){
+    labels.push(v.label);
+    colors.push(v.color);
+  });
+  div.innerHTML = '<p style="font-weight:bold">'+legends[viz].title+'</p>';
+  
+  //console.log(link2vizDescription);
+  
+  
+  for (var i = 0; i < labels.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + colors[i] + ' "></i> ' + labels[i] + '<br>';
+    }
+
+    return div;
+    
+  };
+  legend.addTo(map);
+  }
+}
+
+
