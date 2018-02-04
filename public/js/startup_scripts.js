@@ -1,7 +1,7 @@
 //Setup variables
 var vizType = 'markers'; // markers/heatmap
 var boundaries = 'none'; // boroughs/wards/none
-var baseMap = L.tileLayer('https://api.mapbox.com/styles/v1/duccioa/ciwrywi3f005m2pnycsiad4i8/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZHVjY2lvYSIsImEiOiJjaW80Z2l5bngwMDFudzZseWhnZHhsOWxtIn0.0osACDIq6ESlPKgardoYdw', {
+var baseMap = L.tileLayer('https://api.mapbox.com/styles/v1/duccioa/cj9h33nox1q4p2so1zm7yb61r/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZHVjY2lvYSIsImEiOiJjaXdyeTQ5Y3YwMDBlMnp0bDZ3OWt5ZnRjIn0.XxVvP8qubZ31rrU_bNsmZA', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18
 });
