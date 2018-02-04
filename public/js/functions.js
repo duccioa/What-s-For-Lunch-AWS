@@ -1,4 +1,13 @@
 /////// Map functions ///////
+jQuery.loadScript = function (url, callback) {
+    jQuery.ajax({
+        url: url,
+        dataType: 'script',
+        success: callback,
+        async: true
+    });
+};
+
 function initializeMarkers(tokenArray, token_pick) {
     var token_options = [];
     $.each(tokenArray, function(i, v) {
@@ -15,12 +24,19 @@ function initializeMarkers(tokenArray, token_pick) {
         borderWidth: token_options[0].marker.borderWidth,
         backgroundColor: token_options[0].marker.backgroundColor
     };
-    console.log("Getting Data for " + token_pick);
-    $.getJSON('https://ogko7k2q2j.execute-api.eu-west-1.amazonaws.com/filterByToken/', {
-        token: token_pick
-    }, function(data) {
-        populate_markers(data, markerOptions)
-    });
+    //console.log("Getting Data for " + token_pick);
+    //$.getJSON('https://ogko7k2q2j.execute-api.eu-west-1.amazonaws.com/filterByToken/', {
+    //    token: token_pick
+    //}, function(data) {
+    //    populate_markers(data, markerOptions);
+    //    data_log = data; ////DEBUG
+    //});
+    
+    $.loadScript("./data/" + token_pick + ".js", function(){
+      console.log("Loading premises for " + token_pick);
+      populate_markers(token_markers, markerOptions);
+});
+
 }
 
 

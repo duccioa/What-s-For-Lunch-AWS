@@ -78,3 +78,4 @@ vignettes/*.pdf
 /*/*/public
 server/00_Archive
 *.pper
+*.json
